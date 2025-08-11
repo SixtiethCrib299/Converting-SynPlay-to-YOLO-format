@@ -1,0 +1,33 @@
+import os
+
+dataset_path = r"C:/Users/jrste/Downloads/SynPlay"
+
+Games = ["/SynPlay_G1/G1", "/SynPlay_G2/G2","/SynPlay_G3/G3","/SynPlay_G4/G4","/SynPlay_G5/G5","/SynPlay_G6/G6"]
+trials = ["/G1_T1" , "/G1_T2" , "/G1_T3" ,"/G1_T4" ,"/G1_T5" ,"/G1_T6" ,"/G1_T7" ,"/G1_T8" ,"/G1_T9" ,"/G1_T10"]
+
+
+for game in Games: # Going through the different games
+    game_number = os.path.basename(game) # Saves which game number it is (i.e. "G1" or "G2" etc...) to alter the game number in trials later
+    game_path = dataset_path + game # Path to Each Game Folder 
+    print(game_path)
+    for trial in trials:
+        new_trial = trial.replace("G1", game_number, 1)  # 1 = only replace first match
+        trial_path = game_path + new_trial # Path to Each Trial in Game Folders
+        print(trial_path)
+        for item in os.listdir(trial_path): # Going through items in Each Trial Folder
+            item_path = trial_path + "/" + item
+            print(item_path)
+            if os.path.isdir(item_path):  #If the item is a folder
+                for annotation_file in os.listdir(item_path): # Going through the annotations in the folder
+                    if annotation_file.endswith(".txt"): # If the annotation file is a txt file (i.e. what we are looking for) 
+                        old_path = os.path.join(item_path, annotation_file)
+                        temp = item.replace("0_texts","")
+                        new_file_name = temp + new_trial.replace("/","") + "_"  + annotation_file # New name for each annotation file 
+                        new_path = os.path.join(dataset_path, new_file_name)
+        
+                        os.rename(old_path, new_path)
+                        print(f'Renamed: {annotation_file} → {new_file_name}')
+
+            
+    
+
