@@ -1,0 +1,8 @@
+Steps to Download SynPlay to use with provided python scripts:
+
+1. Go to: https://synplaydataset.github.io/ 
+2. Download each of the 6 game files.
+3. Unzip each game file. For example, with G1 you can unzip it to "SynPlay_G1".
+4. Once you have all 6 unzipped game files, put them all in a folder. Name it SynPlay. 
+
+Ready to use
