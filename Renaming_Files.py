@@ -1,6 +1,6 @@
 import os
 
-dataset_path = r"C:/Users/jrste/Downloads/SynPlay"
+dataset_path = r".../SynPlay" # Path to downloaded SynPlay dataset
 
 Games = ["/SynPlay_G1/G1", "/SynPlay_G2/G2","/SynPlay_G3/G3","/SynPlay_G4/G4","/SynPlay_G5/G5","/SynPlay_G6/G6"]
 trials = ["/G1_T1" , "/G1_T2" , "/G1_T3" ,"/G1_T4" ,"/G1_T5" ,"/G1_T6" ,"/G1_T7" ,"/G1_T8" ,"/G1_T9" ,"/G1_T10"]
@@ -30,4 +30,5 @@ for game in Games: # Going through the different games
 
             
     
+
 
